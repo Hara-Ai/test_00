@@ -22,18 +22,6 @@ public:
 	const int chipSizeX = 66; // マップチップの横サイズ
 	const int chipSizeY = 72; // マップチップの横サイズ
 
-	///==========================================================================
-	// 画像の変数の初期化
-	///==========================================================================
-
-	card cardTexture
-	{
-		{ Novice::LoadTexture("./Resources/images/mapChip/block.png") },
-		{ Novice::LoadTexture("./Resources/images/number/one.png") },
-		{ Novice::LoadTexture("./Resources/images/number/two.png") },
-		{ Novice::LoadTexture("./Resources/images/number/three.png") }
-	};
-
 	// マップ情報
 	int stageMap[15][30] =
 	{
@@ -54,6 +42,29 @@ public:
 		{11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11},
 	};
 
+	///==========================================================================
+	// 画像の変数の初期化
+	///==========================================================================
+
+	// マップチップ画像(仮)
+	allMapChip myTexture
+	{
+		{ Novice::LoadTexture("./Resources/images/mapChip/block.png") }, /* ブロック*/ {false}, // 当たっているか判定するフラグ
+		{ Novice::LoadTexture("./Resources/images/number/one.png")    }, /* カード1 */ {false}, // 当たっているか判定するフラグ
+		{ Novice::LoadTexture("./Resources/images/number/two.png")    }, /* カード2 */ {false}, // 当たっているか判定するフラグ
+		{ Novice::LoadTexture("./Resources/images/number/three.png")  }, /* カード3 */ {false}  // 当たっているか判定するフラグ
+	};
+
+	
+
 	//マップチップの表示
 	void NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSizeX_, int chipSizeY_, int stageMap_[][30]);
+
+	// シングルトンインスタンスを取得するための関数
+	static mapChip& GetInstance() 
+	{
+		static mapChip instance;
+		return instance;
+	}
+
 };

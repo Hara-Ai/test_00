@@ -1,4 +1,5 @@
 ﻿#include "Player.h"
+#include "mapChip.h"
 #include "Novice.h"
 
 void Player::Drow()
@@ -16,15 +17,22 @@ void Player::Drow()
 
 void Player::Move()
 {
-	player.speed.x = player.Size.x;
-	player.speed.y = player.Size.y;
+	player.speed.x = player.Size.x; // スピードのリセット
+	player.speed.y = player.Size.y; // スピードのリセット
 
+	playerTilePosX = (int)player.position.x / (int)player.Size.x;// 現在のプレイヤーの更新
+	playerTilePosY = (int)player.position.y / (int)player.Size.y;// 現在のプレイヤーの更新
+
+	
 	// キー入力を受け取る
 	memcpy(preKeys, keys, 256);
 	Novice::GetHitKeyStateAll(keys);
 
 
-	//移動処理
+	///====================
+	// 移動処理
+	///====================
+
 	if (preKeys[DIK_D] == 0 && keys[DIK_D] != 0 || preKeys[DIK_RIGHT] == 0 && keys[DIK_RIGHT] != 0)
 	{
 		if (player.position.x + player.Size.x < 29 * player.Size.x) //範囲外に出ないようにする処理
@@ -64,4 +72,25 @@ void Player::Move()
 			MoveCount += 1;
 		}
 	}
+
+	///====================
+	// 当たり判定処理
+	///====================
+
+	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 12)
+	{
+		mapChip::GetInstance().myTexture.card1Flag = true; // カードを消す
+	}
+
+	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 13) // カード2に触れたら 
+	{
+		mapChip::GetInstance().myTexture.card2Flag = true; // カードを消す
+	}
+
+	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 14) // カード3に触れたら 
+	{
+		mapChip::GetInstance().myTexture.card3Flag = true; // カードを消す
+	}
+
+
 }

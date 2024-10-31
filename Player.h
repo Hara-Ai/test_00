@@ -12,7 +12,7 @@ public:
 	char preKeys[256] = { 0 };
 
 
-	int MoveCount  = 0;
+	int MoveCount  = 0; //移動するたびにカウントしていく変数
 
 	original player
 	{
@@ -27,7 +27,8 @@ public:
 		{Novice::LoadTexture("./Resources/images/player/ghost.png")}
 	};
 
-
+	int playerTilePosX = (int)player.position.x / (int)player.Size.x;//現在のプレイヤーのX座標
+	int playerTilePosY = (int)player.position.y / (int)player.Size.y;//現在のプレイヤーのY座標
 
 
 

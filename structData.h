@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <Vector3.h>
 
-struct original final // キャラ全般
+struct original final // キャラ全般変数
 {
 	Vector3 Size;
 	Vector3 Radius;
@@ -14,10 +14,10 @@ struct original final // キャラ全般
 	const int Texture;
 };
 
-struct card final
+struct allMapChip final //マップチップ
 {
-	const int Block;
-	const int card1;
-	const int card2;
-	const int card3;
+	const int Block; bool BlockFlag;
+	const int card1; bool card1Flag;
+	const int card2; bool card2Flag;
+	const int card3; bool card3Flag;
 };
