@@ -11,8 +11,6 @@ void Enemy::Drow()
 		(int)enemy.RightBottom.x + (int)enemy.position.x, (int)enemy.RightBottom.y + (int)enemy.position.y,
 		0, 0, (int)enemy.Size.x, (int)enemy.Size.y,
 		(int)enemy.Texture, WHITE);
-
-
 }
 
 void Enemy::MovePattern1(Player& myPlayer)
@@ -25,7 +23,7 @@ void Enemy::MovePattern1(Player& myPlayer)
 	{
 		int randomPattern = rand() % 4 + 1;  // 1から4のランダムなパターンを生成
 
-		
+		// 1～4の行動をランダムで起こす
 		if (randomPattern == 1)
 		{
 			if (enemy.position.x + enemy.Size.x < 29 * enemy.Size.x) //範囲外に出ないようにする処理
@@ -46,7 +44,7 @@ void Enemy::MovePattern1(Player& myPlayer)
 		}
 		else if (randomPattern == 3)
 		{
-			if (enemy.position.y - enemy.Size.y < 15 * enemy.Size.y) // 範囲外に出ないようにする処理
+			if (enemy.position.y + enemy.Size.y < 15 * enemy.Size.y) // 範囲外に出ないようにする処理
 			{
 				enemy.position.y += enemy.speed.y;
 				enemy.speed.y = 0;

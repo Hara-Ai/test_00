@@ -60,7 +60,7 @@ public:
 	//マップチップの表示
 	void NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSizeX_, int chipSizeY_, int stageMap_[][30]);
 
-	// シングルトンインスタンスを取得するための関数
+	// 他のcppで変数の状態を取得するための関数
 	static mapChip& GetInstance() 
 	{
 		static mapChip instance;

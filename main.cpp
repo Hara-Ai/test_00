@@ -2,6 +2,7 @@
 #include "mapChip.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "card.h"
 
 const char kWindowTitle[] = "test_00";
 
@@ -19,6 +20,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	mapChip myMapChip;
 	Player  myPlayer;
 	Enemy   myEnemy;
+	card    myCard;
 
 	// キー入力結果を受け取る箱
 	char keys[256] = { 0 };
@@ -39,8 +41,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		/// ↓更新処理ここから
 		///
 
+		// 移動処理
 		myPlayer.Move();
 		myEnemy.MovePattern1(myPlayer);
+
+		// 獲得処理(カード)
+		myCard.GetCard();
 
 		///
 		/// ↑更新処理ここまで
@@ -58,6 +64,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		//敵の描画
 		myEnemy.Drow();
+
+
+		// デバックの描画
+		//Novice::ScreenPrintf(0, 100, "%f\n", myEnemy.enemy.position.y);
 
 		///
 		/// ↑描画処理ここまで

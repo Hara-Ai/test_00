@@ -4,7 +4,8 @@
 
 void Player::Drow()
 {
-	Novice::DrawQuad(
+	Novice::DrawQuad
+	(
 		(int)player.LeftTop.x + (int)player.position.x, (int)player.LeftTop.y + (int)player.position.y,
 		(int)player.RightTop.x + (int)player.position.x, (int)player.RightTop.y + (int)player.position.y,
 		(int)player.LeftBottom.x + (int)player.position.x, (int)player.LeftBottom.y + (int)player.position.y,
@@ -77,7 +78,7 @@ void Player::Move()
 	// 当たり判定処理
 	///====================
 
-	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 12)
+	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 12)// カード1に触れたら 
 	{
 		mapChip::GetInstance().myTexture.card1Flag = true; // カードを消す
 	}
