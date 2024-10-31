@@ -40,7 +40,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		///
 
 		myPlayer.Move();
-		myEnemy.Move(myPlayer);
+		myEnemy.MovePattern1(myPlayer);
 
 		///
 		/// ↑更新処理ここまで
@@ -51,7 +51,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		///
 
 		// マップチップの描画
-		myMapChip.NoviceMapChip(myMapChip.mapChipSizeX, myMapChip.mapChipSizeY, myMapChip.chipSizeX, myMapChip.chipSizeY, myMapChip.stageMap, myMapChip.blockImges);
+		myMapChip.NoviceMapChip(myMapChip.mapChipSizeX, myMapChip.mapChipSizeY, myMapChip.chipSizeX, myMapChip.chipSizeY, myMapChip.stageMap);
 
 		//プレイヤーの描画
 		myPlayer.Drow();

@@ -15,7 +15,7 @@ void Enemy::Drow()
 
 }
 
-void Enemy::Move(Player& myPlayer)
+void Enemy::MovePattern1(Player& myPlayer)
 {
 	srand((unsigned int)time(NULL)); // 乱数の種を初期化
 	enemy.speed.x = enemy.Size.x; // スピードの初期化
@@ -46,7 +46,7 @@ void Enemy::Move(Player& myPlayer)
 		}
 		else if (randomPattern == 3)
 		{
-			if (enemy.position.y - enemy.Size.y > 15 * enemy.Size.y) // 範囲外に出ないようにする処理
+			if (enemy.position.y - enemy.Size.y < 15 * enemy.Size.y) // 範囲外に出ないようにする処理
 			{
 				enemy.position.y += enemy.speed.y;
 				enemy.speed.y = 0;
@@ -55,7 +55,7 @@ void Enemy::Move(Player& myPlayer)
 		}
 		else if (randomPattern == 4)
 		{
-			if (enemy.position.y + enemy.Size.y < 0) // 範囲外に出ないようにする処理
+			if (enemy.position.y + enemy.Size.y > 0) // 範囲外に出ないようにする処理
 			{
 				enemy.position.y -= enemy.speed.y;
 				enemy.speed.y = 0;

@@ -21,6 +21,6 @@ public:
 	};
 
 	void Drow();
-	void Move(Player& myPlayer);
+	void MovePattern1(Player& myPlayer);
 
 };

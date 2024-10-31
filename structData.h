@@ -13,3 +13,11 @@ struct original final // キャラ全般
 	Vector3 speed;
 	const int Texture;
 };
+
+struct card final
+{
+	const int Block;
+	const int card1;
+	const int card2;
+	const int card3;
+};
