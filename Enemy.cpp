@@ -53,7 +53,7 @@ void Enemy::MovePattern1(Player& myPlayer)
 		}
 		else if (randomPattern == 4)
 		{
-			if (enemy.position.y + enemy.Size.y > 0) // 範囲外に出ないようにする処理
+			if (enemy.position.y - enemy.Size.y > 0) // 範囲外に出ないようにする処理
 			{
 				enemy.position.y -= enemy.speed.y;
 				enemy.speed.y = 0;

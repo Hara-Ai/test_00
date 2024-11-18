@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "card.h"
+#include "structData.h"
 
 const char kWindowTitle[] = "test_00";
 
@@ -45,8 +46,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		myPlayer.Move();
 		myEnemy.MovePattern1(myPlayer);
 
-		// 獲得処理(カード)
-		myCard.GetCard();
 
 		///
 		/// ↑更新処理ここまで

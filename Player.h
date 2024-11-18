@@ -16,7 +16,7 @@ public:
 
 	original player
 	{
-		{66,72,0},                                     // サイズ
+		{120,120,0},                                     // サイズ
 		{player.Size.x / 2, player.Size.y / 2,0},      // 半径
 		{0 + player.Radius.x, 0 + player.Radius.y, 0}, // ポジション
 		{0 - player.Radius.x, 0 - player.Radius.y, 0}, // 左上

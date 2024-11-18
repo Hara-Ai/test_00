@@ -7,7 +7,7 @@ class Enemy
 public:
 	
 	original enemy{
-		{66, 72, 0}, // サイズ
+		{120, 120, 0}, // サイズ
 		{enemy.Size.x / 2, enemy.Size.y / 2, 0}, // 半径
 		{0 + enemy.Radius.x, 0 + enemy.Radius.y, 0}, //  ポジション
 		{0 - enemy.Radius.x, 0 - enemy.Radius.y, 0}, //  左上
@@ -15,7 +15,7 @@ public:
 		{0 - enemy.Radius.x, 0 + enemy.Radius.y, 0}, //  左下
 		{0 + enemy.Radius.x, 0 + enemy.Radius.y, 0}, //  右下
 		{enemy.Size.x, enemy.Size.y, 0}, // スピード
-		{Novice::LoadTexture("./Resources/images/player/nisito.png")}
+		{Novice::LoadTexture("./Resources/images/player/enemy01.png")}
 	};
 
 	void Drow();

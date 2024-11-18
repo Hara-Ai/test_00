@@ -1,10 +1,11 @@
 ﻿#include "mapChip.h"
-#include "Player.h"
+//#include "Player.h"
+#include "card.h"
 #include <Novice.h>
 
-void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSizeX_, int chipSizeY_, int stageMap_[][30])
+void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSizeX_, int chipSizeY_, int stageMap_[][16])
 {
-	Player myPlayer_;
+	//Player myPlayer_;
 
 	// マップチップの生成
 	for (int y = 0; y < mapSizeY; y++)
@@ -20,40 +21,40 @@ void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSize
 			// 背景ブロック
 			if (stageMap_[y][x] == 11) 
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.Block, 1.0f, 1.0f, 0.0f, WHITE); // マップチップの生成
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE); // マップチップの生成
 			}
 
 			// カード1
-			if (stageMap_[y][x] == 12 && mapChip::GetInstance().myTexture.card1Flag == false) 
+			if (stageMap_[y][x] == 12 && card::GetInstance().cardFlag[0] == false)
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.card1, 1.0f, 1.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.card[0], 1.0f, 1.0f, 0.0f, WHITE);
 			}
 			//取られた際
-			if (stageMap_[y][x] == 12 && mapChip::GetInstance().myTexture.card1Flag == true)
+			if (stageMap_[y][x] == 12 && card::GetInstance().cardFlag[0] == true)
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.Block, 1.0f, 1.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE);
 			}
-
+			
 			// カード2
-			if (stageMap_[y][x] == 13 && mapChip::GetInstance().myTexture.card2Flag == false) 
+			if (stageMap_[y][x] == 13 && card::GetInstance().cardFlag[1] == false)
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.card2, 1.0f, 1.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.card[1], 1.0f, 1.0f, 0.0f, WHITE);
 			}
 			//取られた際
-			if (stageMap_[y][x] == 13 && mapChip::GetInstance().myTexture.card2Flag == true)
+			if (stageMap_[y][x] == 13 && card::GetInstance().cardFlag[1] == true)
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.Block, 1.0f, 1.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE);
 			}
-
+			
 			// カード3
-			if (stageMap_[y][x] == 14 && mapChip::GetInstance().myTexture.card3Flag == false) 
+			if (stageMap_[y][x] == 14 && card::GetInstance().cardFlag[2] == false)
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.card3, 1.0f, 1.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.card[2], 1.0f, 1.0f, 0.0f, WHITE);
 			}
 			//取られた際
-			if (stageMap_[y][x] == 14 && mapChip::GetInstance().myTexture.card3Flag == true)
+			if (stageMap_[y][x] == 14 && card::GetInstance().cardFlag[2] == true)
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)mapChip::GetInstance().myTexture.Block, 1.0f, 1.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE);
 			}
 		}
 	}
