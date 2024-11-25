@@ -45,6 +45,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		// 移動処理
 		myPlayer.Move();
 		myEnemy.MovePattern1(myPlayer);
+		myMapChip.isDetection(myPlayer);
 
 
 		///
@@ -66,7 +67,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 
 		// デバックの描画
-		//Novice::ScreenPrintf(0, 100, "%f\n", myEnemy.enemy.position.y);
+		Novice::ScreenPrintf(0, 100, "%f\n", myPlayer.player.position.x);
+		Novice::ScreenPrintf(0, 120, "%f\n", myPlayer.player.position.y);
 
 		///
 		/// ↑描画処理ここまで

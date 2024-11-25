@@ -16,13 +16,13 @@ public:
 
 	original player
 	{
-		{120,120,0},                                     // サイズ
+		{120,120,0},                                   // サイズ
 		{player.Size.x / 2, player.Size.y / 2,0},      // 半径
-		{0 + player.Radius.x, 0 + player.Radius.y, 0}, // ポジション
-		{0 - player.Radius.x, 0 - player.Radius.y, 0}, // 左上
-		{0 + player.Radius.x, 0 - player.Radius.y, 0}, // 右上
-		{0 - player.Radius.x, 0 + player.Radius.y, 0}, // 左下
-		{0 + player.Radius.x, 0 + player.Radius.y, 0}, // 右下
+		{30, 30, 0}, // ポジション
+		{player.position.x - player.Radius.x, player.position.y - player.Radius.y, 0}, // 左上
+		{player.position.x + player.Radius.x, player.position.y - player.Radius.y, 0}, // 右上
+		{player.position.x - player.Radius.x, player.position.y + player.Radius.y, 0}, // 左下
+		{player.position.x + player.Radius.x, player.position.y + player.Radius.y, 0}, // 右下
 		{player.Size.x, player.Size.y, 0},             // スピード
 		{Novice::LoadTexture("./Resources/images/player/ghost.png")} // テクスチャ
 	};
@@ -32,7 +32,7 @@ public:
 
 	void Drow();
 	void Move();
-
+	//void isC();
 	// 他のcppで変数の状態を取得するための関数
 	static Player& GetInstance()
 	{

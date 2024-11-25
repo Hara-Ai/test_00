@@ -59,3 +59,22 @@ void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSize
 		}
 	}
 }
+
+void mapChip::isDetection(Player& player_)
+{
+	if(stageMap[player_ .playerTilePosY][player_.playerTilePosX] == 12)// カード1に触れたら 
+	{
+		card::GetInstance().cardFlag[0] = true; // カードを消す
+	}
+
+	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 13) // カード2に触れたら 
+	{
+		card::GetInstance().cardFlag[1] = true; // カードを消す
+	}
+
+	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 14) // カード3に触れたら 
+	{
+		card::GetInstance().cardFlag[2] = true; // カードを消す
+	}
+
+}

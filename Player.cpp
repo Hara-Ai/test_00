@@ -78,21 +78,6 @@ void Player::Move()
 	///====================
 	// 当たり判定処理
 	///====================
-
-	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 12)// カード1に触れたら 
-	{
-		card::GetInstance().cardFlag[0] = true; // カードを消す
-	}
-	
-	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 13) // カード2に触れたら 
-	{
-		card::GetInstance().cardFlag[1] = true; // カードを消す
-	}
-	
-	if (mapChip::GetInstance().stageMap[playerTilePosY][playerTilePosX] == 14) // カード3に触れたら 
-	{
-		card::GetInstance().cardFlag[2] = true; // カードを消す
-	}
-
-
 }
+
+
