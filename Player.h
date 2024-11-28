@@ -30,6 +30,16 @@ public:
 	int playerTilePosX = (int)player.position.x / (int)player.Size.x; //現在のプレイヤーのX座標
 	int playerTilePosY = (int)player.position.y / (int)player.Size.y; //現在のプレイヤーのY座標
 
+	// イージング
+	float startPlayerPosX = player.position.x;
+	float startPlayerPosY = player.position.y;
+	float endPlayerPosX = player.position.x + player.speed.x;
+	float endPlayerPosY = player.position.y + player.speed.y;
+
+	bool easingFlag = false;
+	float frameX = 0.0f;
+	float endFrameX = 100.0f;
+
 	void Drow();
 	void Move();
 	//void isC();

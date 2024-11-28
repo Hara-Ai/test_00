@@ -2,6 +2,8 @@
 #include "mapChip.h"
 #include "Novice.h"
 #include "card.h"
+#include "AllEasing.h"
+
 
 void Player::Drow()
 {
@@ -19,12 +21,15 @@ void Player::Drow()
 
 void Player::Move()
 {
+
+
 	player.speed.x = player.Size.x; // スピードのリセット
 	player.speed.y = player.Size.y; // スピードのリセット
 
 	playerTilePosX = (int)player.position.x / (int)player.Size.x;// 現在のプレイヤーの更新
 	playerTilePosY = (int)player.position.y / (int)player.Size.y;// 現在のプレイヤーの更新
 
+	
 	
 	// キー入力を受け取る
 	memcpy(preKeys, keys, 256);
@@ -39,9 +44,18 @@ void Player::Move()
 	{
 		if (player.position.x + player.Size.x < 29 * player.Size.x) //範囲外に出ないようにする処理
 		{
-			player.position.x += player.speed.x;
+			easingFlag = true;
+			if(easingFlag == true)
+			{ 
+				frameX++;
+			}
+			
+			if (frameX == endFrameX)
+			{
+				easingFlag = false;
+			}
 			MoveCount += 1;
-			player.speed.x = 0;
+			//player.speed.x = 0;
 		}
 	}
 
@@ -75,6 +89,7 @@ void Player::Move()
 		}
 	}
 
+	player.position.x = startPlayerPosX + (frameX - endFrameX) * playerEasing(player.position.x);
 	
 }
 
