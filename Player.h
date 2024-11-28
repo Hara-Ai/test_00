@@ -18,7 +18,7 @@ public:
 	{
 		{120,120,0},                                   // サイズ
 		{player.Size.x / 2, player.Size.y / 2,0},      // 半径
-		{30, 30, 0}, // ポジション
+		{90, 90, 0}, // ポジション
 		{player.position.x - player.Radius.x, player.position.y - player.Radius.y, 0}, // 左上
 		{player.position.x + player.Radius.x, player.position.y - player.Radius.y, 0}, // 右上
 		{player.position.x - player.Radius.x, player.position.y + player.Radius.y, 0}, // 左下
@@ -27,8 +27,8 @@ public:
 		{Novice::LoadTexture("./Resources/images/player/ghost.png")} // テクスチャ
 	};
 
-	int playerTilePosX = (int)player.position.x / (int)player.Size.x; //現在のプレイヤーのX座標
-	int playerTilePosY = (int)player.position.y / (int)player.Size.y; //現在のプレイヤーのY座標
+	int playerTilePosX = 0; //現在のプレイヤーのX座標
+	int playerTilePosY = 0; //現在のプレイヤーのY座標
 
 	// イージング
 	float startPlayerPosX = player.position.x;

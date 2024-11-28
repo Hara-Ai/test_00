@@ -26,8 +26,8 @@ void Player::Move()
 	player.speed.x = player.Size.x; // スピードのリセット
 	player.speed.y = player.Size.y; // スピードのリセット
 
-	playerTilePosX = (int)player.position.x / (int)player.Size.x;// 現在のプレイヤーの更新
-	playerTilePosY = (int)player.position.y / (int)player.Size.y;// 現在のプレイヤーの更新
+	playerTilePosX = ((int)player.position.x / (int)player.Size.x)+1;// 現在のプレイヤーの更新
+	playerTilePosY = ((int)player.position.y / (int)player.Size.y)+1;// 現在のプレイヤーの更新
 
 	
 	
@@ -42,7 +42,7 @@ void Player::Move()
 
 	if (preKeys[DIK_D] == 0 && keys[DIK_D] != 0 || preKeys[DIK_RIGHT] == 0 && keys[DIK_RIGHT] != 0)
 	{
-		if (player.position.x + player.Size.x < 29 * player.Size.x) //範囲外に出ないようにする処理
+		if (player.position.x + player.Size.x < 14 * player.Size.x) //範囲外に出ないようにする処理
 		{
 			//easingFlag = true;
 			//if(easingFlag == true)
@@ -82,7 +82,7 @@ void Player::Move()
 
 	if (preKeys[DIK_S] == 0 && keys[DIK_S] != 0 || preKeys[DIK_DOWN] == 0 && keys[DIK_DOWN] != 0)
 	{
-		if (player.position.y + player.Size.y < 15 * player.Size.y) // 範囲外に出ないようにする処理
+		if (player.position.y + player.Size.y < 7 * player.Size.y) // 範囲外に出ないようにする処理
 		{
 			player.position.y += player.speed.y;
 			player.speed.y = 0;
