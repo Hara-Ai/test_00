@@ -2,7 +2,7 @@
 #include "mapChip.h"
 #include "Novice.h"
 #include "card.h"
-#include "AllEasing.h"
+//#include "AllEasing.h"
 
 
 void Player::Drow()
@@ -44,18 +44,19 @@ void Player::Move()
 	{
 		if (player.position.x + player.Size.x < 29 * player.Size.x) //範囲外に出ないようにする処理
 		{
-			easingFlag = true;
-			if(easingFlag == true)
-			{ 
-				frameX++;
-			}
-			
-			if (frameX == endFrameX)
-			{
-				easingFlag = false;
-			}
-			MoveCount += 1;
-			//player.speed.x = 0;
+			//easingFlag = true;
+			//if(easingFlag == true)
+			//{ 
+			//	frameX++;
+			//}
+			//
+			//if (frameX == endFrameX)
+			//{
+			//	easingFlag = false;
+			//}
+			//MoveCount += 1;
+			player.position.x += player.speed.x;
+			player.speed.x = 0;
 		}
 	}
 
@@ -89,7 +90,7 @@ void Player::Move()
 		}
 	}
 
-	player.position.x = startPlayerPosX + (frameX - endFrameX) * playerEasing(player.position.x);
+	//player.position.x = startPlayerPosX + (frameX - endFrameX) * playerEasing(player.position.x);
 	
 }
 
