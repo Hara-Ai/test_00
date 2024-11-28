@@ -15,9 +15,9 @@ struct original final // キャラ全般変数
 	const int Texture;   // テクスチャ
 };
 
-struct allMapChip final
+struct allCard final
 {
-	static constexpr int mapChipCount = 3; // 配列サイズの定義
+	static constexpr int mapChipCount = 7; // 配列サイズの定義
 
 	const int block;
 	const int card[mapChipCount];
