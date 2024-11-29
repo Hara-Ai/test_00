@@ -137,8 +137,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[0] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
+			card::GetInstance().cardFlag[0] = true; // カードを消す
 		}
-		card::GetInstance().cardFlag[0] = true; // カードを消す
 		
 	}
 
@@ -149,8 +149,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[1] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
-		}
 		card::GetInstance().cardFlag[1] = true; // カードを消す
+		}
 	}
 
 	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 23 // カード3に触れたら
@@ -160,8 +160,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[2] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
-		}
 		card::GetInstance().cardFlag[2] = true; // カードを消す
+		}
 	}
 
 	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 24 // カード4に触れたら
@@ -171,8 +171,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[3] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
-		}
 		card::GetInstance().cardFlag[3] = true; // カードを消す
+		}
 	}
 
 	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 25 // カード5に触れたら
@@ -182,8 +182,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[4] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
-		}
 		card::GetInstance().cardFlag[4] = true; // カードを消す
+		}
 	}
 
 	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 26 // カード6に触れたら
@@ -193,8 +193,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[5] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
-		}
 		card::GetInstance().cardFlag[5] = true; // カードを消す
+		}
 	}
 
 	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 27 // カード7に触れたら 
@@ -204,8 +204,8 @@ void mapChip::isDetection(Player& player_)
 		if (card::GetInstance().cardFlag[6] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 		{
 			card::GetInstance().GetCardCount();
-		}
 		card::GetInstance().cardFlag[6] = true; // カードを消す
+		}
 	}
 
 	// デバック
