@@ -1,5 +1,5 @@
 ﻿#include "mapChip.h"
-//#include "Player.h"
+#include "Enemy.h"
 #include "card.h"
 #include <Novice.h>
 
@@ -22,6 +22,12 @@ void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSize
 			if (stageMap_[y][x] == 11) 
 			{
 				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE); // マップチップの生成
+			}
+
+			// ボス
+			if (stageMap_[y][x] == 12 && Enemy::GetInstance().enemyFlag[0] == false)// 13はボスの当たり判定追加のため作成
+			{
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)Enemy::GetInstance().myTexture.enemy[0], 2.0f, 2.0f, 0.0f, WHITE);
 			}
 
 			// カード1
@@ -106,12 +112,25 @@ void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSize
 
 void mapChip::isDetection(Player& player_)
 {
+	///====================
+	// プレイヤーと敵の当たり判定処理
+	///====================
+
+	if (stageMap[player_.playerTilePosY][player_.playerTilePosX] == 12// 敵本体に触れたら 
+		||stageMap[player_.playerTilePosY][player_.playerTilePosX] == 13// もしくは敵の本体以外の当たり判定に触れたら 
+	   )
+	{
+		// 敵と当たった時の処理はここに書く
+		Enemy::GetInstance().enemyFlag[0] = true; // カードを消す
+
+	}
+
 
 	///====================
-	// プレイヤーとの当たり判定処理
+	// プレイヤーとマップチップの当たり判定処理
 	///====================
 
-	if(stageMap[player_ .playerTilePosY][player_.playerTilePosX] == 21 // カード1に触れたら 
+	if(stageMap[player_ .playerTilePosY][player_.playerTilePosX] == 21// カード1に触れたら 
 		|| card::GetInstance().CardCount >= card::GetInstance().cardMaximumCount)// カードを取れる上限まで行ったら
 	{
 		//一度しか通らなくさせるためフラグが折れる前に一度だけ実行

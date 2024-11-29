@@ -18,7 +18,25 @@ public:
 		{Novice::LoadTexture("./Resources/images/player/enemy01.png")}
 	};
 
+	// 画像
+	allEnemyTexture myTexture
+	{
+		{Novice::LoadTexture("./Resources/images/player/enemy01.png")}
+	};
+
+	// 敵にふれたかどうかの判定フラグ
+	static const int FlagNunber = 1;// 敵の枚数
+
+	bool enemyFlag[FlagNunber] = {};// 敵
+
 	void Drow();
 	void MovePattern1(Player& myPlayer);
+
+	// 他のcppで変数の状態を取得するための関数
+	static Enemy& GetInstance()
+	{
+		static Enemy instance;
+		return instance;
+	}
 
 };

@@ -24,3 +24,12 @@ struct allCard final
 
 
 };
+
+struct allEnemyTexture final
+{
+	static constexpr int mapChipCount = 1; // 配列サイズの定義
+
+	const int enemy[mapChipCount];
+
+
+};
