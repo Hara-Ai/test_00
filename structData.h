@@ -20,16 +20,8 @@ struct allCard final
 	static constexpr int mapChipCount = 7; // 配列サイズの定義
 
 	const int block;
+	const int enemy;
 	const int card[mapChipCount];
-
-
-};
-
-struct allEnemyTexture final
-{
-	static constexpr int mapChipCount = 1; // 配列サイズの定義
-
-	const int enemy[mapChipCount];
 
 
 };

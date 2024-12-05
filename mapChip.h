@@ -39,7 +39,35 @@ public:
 
 	const int cardNumber = 7;// カードの枚数
 
-	
+	allCard myTexture
+	{
+		// 画像の初期化
+		{
+			Novice::LoadTexture("./Resources/images/mapChip/block01.png")// ブロック
+		},
+
+		{
+			Novice::LoadTexture("./Resources/images/player/enemy01.png")// 敵
+		},
+
+		{
+			Novice::LoadTexture("./Resources/images/number/one.png"),    // カード1
+			Novice::LoadTexture("./Resources/images/mapChip/card01.png"),// カード2
+			Novice::LoadTexture("./Resources/images/mapChip/card01.png"),// カード3
+			Novice::LoadTexture("./Resources/images/mapChip/card01.png"),// カード4
+			Novice::LoadTexture("./Resources/images/mapChip/card01.png"),// カード5
+			Novice::LoadTexture("./Resources/images/mapChip/card01.png"),// カード6
+			Novice::LoadTexture("./Resources/images/mapChip/card01.png"),// カード7
+		}
+	};
+
+
+	// カードにふれたかどうかの判定フラグ
+	static const int FlagNunber = 7;// カードの枚数
+
+	bool cardFlag[FlagNunber] = {};// カード
+	bool BlockFlag = {};// 白ブロック
+
 
 	//マップチップの表示
 	void NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSizeX_, int chipSizeY_, int stageMap_[][16]);
@@ -53,4 +81,5 @@ public:
 
 	// カウントをアップさせる関数
 	void isDetection(Player& player_);
+
 };

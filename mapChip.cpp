@@ -21,26 +21,26 @@ void mapChip::NoviceMapChip(const int mapSizeX, const int mapSizeY, int chipSize
 			// 背景ブロック
 			if (stageMap_[y][x] == 11) 
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE); // マップチップの生成
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)myTexture.block, 1.0f, 1.0f, 0.0f, WHITE); // マップチップの生成
 			}
 
 			// ボス
-			if (stageMap_[y][x] == 12 && Enemy::GetInstance().enemyFlag[0] == false)// 13はボスの当たり判定追加のため作成
+			if (stageMap_[y][x] == 12)// 13はボスの当たり判定追加のため作成
 			{
-				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)Enemy::GetInstance().myTexture.enemy[0], 2.0f, 2.0f, 0.0f, WHITE);
+				Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)myTexture.enemy, 2.0f, 2.0f, 0.0f, WHITE);
 			}
 
 			for (int i = 0; i < cardNumber; i++) // カードの数が7枚の場合
 			{ 
 				if (stageMap_[y][x] == 21 + i) 
 				{
-					if (card::GetInstance().cardFlag[i] == false)
+					if (cardFlag[i] == false)
 					{
-						Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.card[i], 1.0f, 1.0f, 0.0f, WHITE);
+						Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)myTexture.card[i], 1.0f, 1.0f, 0.0f, WHITE);
 					}
 					else 
 					{
-						Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)card::GetInstance().myTexture.block, 1.0f, 1.0f, 0.0f, WHITE);
+						Novice::DrawSprite(x * chipSizeX_, y * chipSizeY_, (int)myTexture.block, 1.0f, 1.0f, 0.0f, WHITE);
 					}
 				}
 			}
@@ -74,11 +74,11 @@ void mapChip::isDetection(Player& player_)
 			|| card::GetInstance().CardCount >= card::GetInstance().cardMaximumCount)// カードを取れる上限まで行ったら
 		{
 			//一度しか通らなくさせるためフラグが折れる前に一度だけ実行
-			if (card::GetInstance().cardFlag[0 + i] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
+			if (cardFlag[0 + i] == false && card::GetInstance().CardCount < card::GetInstance().cardMaximumCount)
 			{
 				card::GetInstance().GetCardCount();
 			}
-			card::GetInstance().cardFlag[0 + i] = true; // カードを消す
+			cardFlag[0 + i] = true; // カードを消す
 		}
 	}
 
